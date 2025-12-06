@@ -1,0 +1,138 @@
+:root {
+    --bg-color: #0f0a06;
+    --calculator-bg: #0f0a06;
+    --text-color: #fff8e1;
+    --display-bg: #1c120b;
+    --btn-bg: #3d291a;
+    --btn-hover: #543924;
+    --accent-color: #8d6e63;
+    --operator-color: #a1887f;
+    --delete-color: #8d6e63;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.calculator-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: var(--calculator-bg);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.display {
+    background-color: var(--display-bg);
+    border-radius: 0;
+    padding: 30px;
+    margin-bottom: 20px;
+    text-align: right;
+    flex: 1;
+    /* Takes up available space not used by buttons */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+    border: none;
+}
+
+.previous-operand {
+    color: #a1887f;
+    font-size: 2rem;
+    min-height: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.current-operand {
+    color: var(--text-color);
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    flex: 3;
+    /* Buttons take up 3x the space of display roughly, or just fill remaining */
+    height: 100%;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    background-color: var(--btn-bg);
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 100%;
+    /* Fill the grid cell */
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.operator {
+    color: var(--text-color);
+    background-color: #4e342e;
+    font-weight: 600;
+}
+
+.operator:hover {
+    background-color: #6d4c41;
+}
+
+.equals {
+    background-color: #5d4037;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.equals:hover {
+    background-color: #795548;
+}
+
+.btn[data-action="clear"],
+.btn[data-action="delete"] {
+    background-color: #2b1b11;
+    color: #ffccbc;
+    font-weight: 600;
+}
+
+.btn[data-action="clear"]:hover,
+.btn[data-action="delete"]:hover {
+    background-color: #3e2723;
+}
